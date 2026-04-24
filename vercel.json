@@ -1,4 +1,9 @@
 {
+  "functions": {
+    "api/bfhl.js": {
+      "includeFiles": "lib/**"
+    }
+  },
   "rewrites": [
     { "source": "/bfhl", "destination": "/api/bfhl" }
   ]
