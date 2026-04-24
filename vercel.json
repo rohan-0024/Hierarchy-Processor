@@ -1,10 +1,22 @@
 {
-  "functions": {
-    "api/bfhl.js": {
-      "includeFiles": "lib/**"
+  "version": 2,
+  "framework": null,
+  "builds": [
+    {
+      "src": "api/bfhl.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["lib/**"]
+      }
+    },
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
     }
-  },
-  "rewrites": [
-    { "source": "/bfhl", "destination": "/api/bfhl" }
+  ],
+  "routes": [
+    { "src": "/bfhl", "dest": "/api/bfhl.js" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/public/$1" }
   ]
 }
