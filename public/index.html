@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BFHL Hierarchy Processor — Bajaj Finserv Challenge">
+  <title>BFHL — Hierarchy Processor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-effects">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <main class="container">
+    <header class="header" id="app-header">
+      <div class="header-badge">REST API Challenge</div>
+      <h1 class="header-title"><span class="gradient-text">BFHL</span> Hierarchy Processor</h1>
+      <p class="header-subtitle">Enter node relationships to build, analyze, and visualize hierarchical trees.</p>
+    </header>
+
+    <section class="input-section glass-card" id="input-section">
+      <h2 class="section-label">Input Data</h2>
+      <p class="input-hint">Enter edges separated by commas or new lines. Example: <code>A-&gt;B, A-&gt;C, B-&gt;D</code></p>
+      <textarea id="data-input" class="textarea" rows="5" placeholder="A->B, A->C, B->D, C->E&#10;X->Y, Y->Z, Z->X" spellcheck="false"></textarea>
+      <div class="input-actions">
+        <button id="load-example" class="btn btn-ghost" type="button">Load Example</button>
+        <button id="submit-btn" class="btn btn-primary" type="button">
+          <span class="btn-text">Process Data</span>
+          <span class="btn-loader" hidden><span class="spinner"></span></span>
+        </button>
+      </div>
+    </section>
+
+    <div id="error-toast" class="error-toast" hidden>
+      <span id="error-message"></span>
+    </div>
+
+    <section id="results-section" class="results-section" hidden>
+      <div class="identity-card glass-card fade-up" id="identity-card">
+        <h3 class="card-title">Identity</h3>
+        <div class="identity-grid" id="identity-grid"></div>
+      </div>
+
+      <div class="summary-dashboard fade-up" id="summary-dashboard">
+        <div class="stat-card glass-card"><span class="stat-value" id="total-trees">0</span><span class="stat-label">Valid Trees</span></div>
+        <div class="stat-card glass-card"><span class="stat-value" id="total-cycles">0</span><span class="stat-label">Cycles</span></div>
+        <div class="stat-card glass-card"><span class="stat-value" id="largest-root">—</span><span class="stat-label">Largest Root</span></div>
+      </div>
+
+      <div class="hierarchies-section fade-up" id="hierarchies-section">
+        <h2 class="section-title">Hierarchies</h2>
+        <div class="hierarchies-grid" id="hierarchies-grid"></div>
+      </div>
+
+      <div class="entries-row fade-up" id="entries-row">
+        <div class="entries-card glass-card" id="invalid-card">
+          <h3 class="entries-title invalid-title">Invalid Entries</h3>
+          <div class="badges-container" id="invalid-badges"></div>
+        </div>
+        <div class="entries-card glass-card" id="duplicate-card">
+          <h3 class="entries-title duplicate-title">Duplicate Edges</h3>
+          <div class="badges-container" id="duplicate-badges"></div>
+        </div>
+      </div>
+
+      <details class="raw-json glass-card fade-up" id="raw-json-section">
+        <summary class="raw-json-summary">Raw JSON Response</summary>
+        <pre class="json-block"><code id="raw-json-content"></code></pre>
+      </details>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Built by <strong>Rohan Paul</strong> · RA2311028010024 · SRMIST</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

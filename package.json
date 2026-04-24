@@ -1,0 +1,13 @@
+{
+  "name": "bajaj-finserv-bfhl",
+  "version": "1.0.0",
+  "description": "Bajaj Finserv SRM Full Stack Engineering Challenge — REST API & Frontend",
+  "main": "api/bfhl.js",
+  "scripts": {
+    "dev": "npx -y vercel dev",
+    "test": "node test/test.js"
+  },
+  "keywords": [],
+  "author": "Rohan Paul",
+  "license": "MIT"
+}
